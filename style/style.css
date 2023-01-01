@@ -1,0 +1,94 @@
+body{
+    background-color: burlywood;
+}
+
+.container{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    background-color: beige;
+    border: 1px black solid;
+    border-radius: 10px;
+    width: 80%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.secao{
+    margin-bottom: 50px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.informacao_ciclo{
+    margin-bottom: 15px;
+    height: 100%;
+}
+
+#desbaste{
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    box-sizing: border-box;
+}
+
+#faceamento{
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    box-sizing: border-box;
+}
+
+.dropdown {
+    margin: 0 auto;
+    font-size: 16px;
+    font-family: inherit;
+    color: #222222;
+    border-radius: 4px;
+    background: #fdfdfd;
+    padding-left: 10px;
+    height: 100%;
+}
+
+button{
+    padding: 5px 30px;
+    font-size: 25px;
+    margin-top: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover{
+    background-color: #444444;
+    transform: scale(1.03);
+}
+
+.checkbox{
+    height: 20px;
+    width: 20px;
+}
+
+.resultado{
+    width: 100%;
+    padding: 5px;
+    border: 1px black solid;
+    border-radius: 5px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+#resultadoFaceamento{
+    display: none;
+}
+
+#resultadoDesbaste{
+    display: none;
+}
