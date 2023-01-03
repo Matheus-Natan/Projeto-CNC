@@ -1,22 +1,22 @@
 function updateCycle() {
-    let select = document.querySelector("#select_ciclo");
+    let select = document.querySelector("#select_cycle");
     let optionValue = select.options[select.selectedIndex];
     let value = optionValue.value;
 
-    if (value == "desbaste") {
-        let desbasteLayer = document.getElementById('desbaste');
-        desbasteLayer.style.display = 'block';
+    if (value == "thinning") {
+        let thinningLayer = document.getElementById('thinning');
+        thinningLayer.style.display = 'block';
     } else {
-        let desbasteLayer = document.getElementById('desbaste');
-        desbasteLayer.style.display = 'none';
+        let thinningLayer = document.getElementById('thinning');
+        thinningLayer.style.display = 'none';
     }
 
-    if (value == "faceamento") {
-        let faceamentoLayer = document.getElementById('faceamento');
-        faceamentoLayer.style.display = 'block';
+    if (value == "facing") {
+        let facingLayer = document.getElementById('facing');
+        facingLayer.style.display = 'block';
     } else {
-        let faceamentoLayer = document.getElementById('faceamento');
-        faceamentoLayer.style.display = 'none';
+        let facingLayer = document.getElementById('facing');
+        facingLayer.style.display = 'none';
     }
 }
 
@@ -38,43 +38,43 @@ function filterDecimalPlaces(number) {
 
 function generateRoughingCode() {
 
-    let diametroInicial = parseFloat(document.getElementById('diametroInicial').value) + 4;
-    let comprimentoInicial = parseFloat(document.getElementById("comprimentoInicial").value) + 2;
-    let sobremetalAcabamentoX = parseFloat(document.getElementById("sobremetalAcabamentoX").value);
-    let sobremetalAcabamentoZ = parseFloat(document.getElementById("sobremetalAcabamentoZ").value);
-    let incrementoPorPassada = parseFloat(document.getElementById("incrementoPorPassada").value);
-    let subPrograma = document.getElementById("subPrograma").value;
-    let avanço = parseFloat(document.getElementById("avanço").value);
+    let initial_diameter = parseFloat(document.getElementById('initial_diameter').value) + 4;
+    let starting_length = parseFloat(document.getElementById("starting_length").value) + 2;
+    let xAxisFinishingAllowance = parseFloat(document.getElementById("X_axis_finishing_allowance").value);
+    let zAxisFinishingAllowance = parseFloat(document.getElementById("Z_axis_finishing_allowance").value);
+    let increment_per_pass = parseFloat(document.getElementById("increment_per_pass").value);
+    let subProgram = document.getElementById("subProgram").value;
+    let advance_in_roughing = parseFloat(document.getElementById("advance_in_roughing").value);
 
-    let preAcabamento = document.getElementById("preAcabamento");
-    let resultadoDesbaste = document.getElementById("resultadoDesbaste");
+    let preFinishing = document.getElementById("pre_finishing");
+    let roughingResult = document.getElementById("roughing_result");
 
-    resultadoDesbaste.style.display = "flex"
+    roughingResult.style.display = "flex"
 
-    if (preAcabamento.checked) {
-        resultadoDesbaste.innerHTML = `G66 X${filterDecimalPlaces(diametroInicial)} Z${filterDecimalPlaces(comprimentoInicial)} I${filterDecimalPlaces(sobremetalAcabamentoX)} K${filterDecimalPlaces(sobremetalAcabamentoZ)} U1 W${filterDecimalPlaces(incrementoPorPassada)} ${subPrograma} F${filterDecimalPlaces(avanço)}#`
+    if (preFinishing.checked) {
+        roughingResult.innerHTML = `G66 X${filterDecimalPlaces(initial_diameter)} Z${filterDecimalPlaces(starting_length)} I${filterDecimalPlaces(xAxisFinishingAllowance)} K${filterDecimalPlaces(zAxisFinishingAllowance)} U1 W${filterDecimalPlaces(increment_per_pass)} ${subProgram} F${filterDecimalPlaces(advance_in_roughing)}#`
     } else {
-        resultadoDesbaste.innerHTML = `G66 X${filterDecimalPlaces(diametroInicial)} Z${filterDecimalPlaces(comprimentoInicial)} I${filterDecimalPlaces(sobremetalAcabamentoX)} K${filterDecimalPlaces(sobremetalAcabamentoZ)} W${filterDecimalPlaces(incrementoPorPassada)} ${subPrograma} F${filterDecimalPlaces(avanço)}#`
+        roughingResult .innerHTML = `G66 X${filterDecimalPlaces(initial_diameter)} Z${filterDecimalPlaces(starting_length)} I${filterDecimalPlaces(xAxisFinishingAllowance)} K${filterDecimalPlaces(zAxisFinishingAllowance)} W${filterDecimalPlaces(increment_per_pass)} ${subProgram} F${filterDecimalPlaces(advance_in_roughing)}#`
     }
 
 }
 
 function generateFacingCode() {
 
-    let diametroFinalFaceamento = parseFloat(document.getElementById('diametroFinalFaceamento').value);
-    let posiçãoFinalFaceamento = parseFloat(document.getElementById('posiçãoFinalFaceamento').value);
-    let incrementoPorPassadaFaceamento = parseFloat(document.getElementById('incrementoPorPassadaFaceamento').value);
-    let avancoFaceamento = parseFloat(document.getElementById('avancoFaceamento').value);
+    let finalDiameterOfFacing = parseFloat(document.getElementById('final_diameter_of_facing').value);
+    let endPositionOfFacing = parseFloat(document.getElementById('end_position_of_facing').value);
+    let incrementPerFacingPass = parseFloat(document.getElementById('increment_per_facing_pass').value);
+    let advanceInFacing = parseFloat(document.getElementById('advance_in_facing').value);
 
-    let recuoAngularFerramenta = document.getElementById("recuoAngularFerramenta");
-    let resultadoFaceamento = document.getElementById("resultadoFaceamento");
+    let toolAngularIndent = document.getElementById("tool_angular_indent");
+    let resultFacing = document.getElementById("result_facing");
 
-    resultadoFaceamento.style.display = "flex"
+    resultFacing.style.display = "flex"
 
-    if (recuoAngularFerramenta.checked) {
-        resultadoFaceamento.innerHTML = `G75 X${filterDecimalPlaces(diametroFinalFaceamento)} Z${filterDecimalPlaces(posiçãoFinalFaceamento)} K${filterDecimalPlaces(incrementoPorPassadaFaceamento)} U1 F${filterDecimalPlaces(avancoFaceamento)}#`
+    if (toolAngularIndent.checked) {
+        resultFacing.innerHTML = `G75 X${filterDecimalPlaces(finalDiameterOfFacing)} Z${filterDecimalPlaces(endPositionOfFacing)} K${filterDecimalPlaces(incrementPerFacingPass)} U1 F${filterDecimalPlaces(advanceInFacing)}#`
     } else {
-        resultadoFaceamento.innerHTML = `G75 X${filterDecimalPlaces(diametroFinalFaceamento)} Z${filterDecimalPlaces(posiçãoFinalFaceamento)} K${filterDecimalPlaces(incrementoPorPassadaFaceamento)} F${filterDecimalPlaces(avancoFaceamento)}#`
+        resultFacing.innerHTML = `G75 X${filterDecimalPlaces(finalDiameterOfFacing)} Z${filterDecimalPlaces(endPositionOfFacing)} K${filterDecimalPlaces(incrementPerFacingPass)} F${filterDecimalPlaces(advanceInFacing)}#`
     }
 
 }

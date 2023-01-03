@@ -26,96 +26,96 @@
             </select>
         </div> -->
 
-        <div class="secao" id="tipoDeCiclo">
-            <label for="tipoDeCiclo">Qual o tipo de ciclo:</label>
+        <div class="section" id="cycle_type">
+            <label for="cycle_type">Qual o tipo de ciclo:</label>
 
-            <select name="tipoDeCiclo" id="select_ciclo" class="dropdown" onchange="updateCycle()">
+            <select name="cycle_type" id="select_cycle" class="dropdown" onchange="updateCycle()">
                 <option selected disabled value="">Selecione</option>
-                <option value="desbaste">Ciclo de Desbaste</option>
-                <option value="faceamento">Ciclo de Faceamento</option>
-                <option value="rosca">Ciclo de Rosca</option>
+                <option value="thinning">Ciclo de Desbaste</option>
+                <option value="facing">Ciclo de Faceamento</option>
+                <!-- <option value="screw_thread">Ciclo de Rosca</option> -->
             </select>
         </div>
 
-        <div id="desbaste" class="secao">
+        <div id="thinning" class="section">
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Diâmetro de referência para início de torneamento:</label>
-                <input type="number" id="diametroInicial">
+                <input type="number" id="initial_diameter">
             </div>
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Comprimento de referência para início de torneamento:</label>
-                <input type="number" id="comprimentoInicial">
+                <input type="number" id="starting_length">
             </div>
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Sobremetal para acabamento no eixo X (diâmetro):</label>
-                <input type="number" id="sobremetalAcabamentoX">
+                <input type="number" id="X_axis_finishing_allowance">
             </div>
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Sobremetal para acabamento no eixo Z:</label>
-                <input type="number" id="sobremetalAcabamentoZ">
+                <input type="number" id="Z_axis_finishing_allowance">
             </div>
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Incremento por passada (diâmetro):</label>
-                <input type="number" id="incrementoPorPassada">
+                <input type="number" id="increment_per_pass">
             </div>
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Subprograma que contém as dimensões de acabamento do perfil da peça:</label>
-                <input type="text" id="subPrograma">
+                <input type="text" id="subProgram">
             </div>
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Avanço programado para desbaste:</label>
-                <input type="number" id="avanço">
+                <input type="number" id="advance_in_roughing">
             </div>
 
-            <div class="informacao_ciclo">
-                <input type="checkbox" class="checkbox" id="preAcabamento" value="preAcabamento">
-                <label for="preAcabamento">Pré Acabamento</label>
+            <div class="cycle_information">
+                <input type="checkbox" class="checkbox" id="pre_finishing" value="pre_finishing">
+                <label for="pre_finishing">Pré Acabamento</label>
             </div>
 
-            <button class="informacao_ciclo" onclick="generateRoughingCode()">Gerar Código</button>
+            <button class="cycle_information" onclick="generateRoughingCode()">Gerar Código</button>
 
-            <div class="resultado" id="resultadoDesbaste"></div>
+            <div class="result" id="roughing_result"></div>
 
         </div>
 
         
-        <div id="faceamento" class="secao">
+        <div id="facing" class="section">
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Diâmetro final:</label>
-                <input type="number" id="diametroFinalFaceamento">
+                <input type="number" id="final_diameter_of_facing">
             </div>
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Posiçâo final:</label>
-                <input type="number" id="posiçãoFinalFaceamento">
+                <input type="number" id="end_position_of_facing">
             </div>
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Incremento por passada em Z:</label>
-                <input type="number" id="incrementoPorPassadaFaceamento">
+                <input type="number" id="increment_per_facing_pass">
             </div>
 
-            <div class="informacao_ciclo">
+            <div class="cycle_information">
                 <label>Avanço:</label>
-                <input type="number" id="avancoFaceamento">
+                <input type="number" id="advance_in_facing">
             </div>
 
-            <div class="informacao_ciclo">
-                <input type="checkbox" class="checkbox" id="recuoAngularFerramenta" value="recuoAngularFerramenta">
-                <label for="recuoAngularFerramenta">Recuo Angular da Ferramenta</label>
+            <div class="cycle_information">
+                <input type="checkbox" class="checkbox" id="tool_angular_indent" value="tool_angular_indent">
+                <label for="tool_angular_indent">Recuo Angular da Ferramenta</label>
             </div>
 
-            <button class="informacao_ciclo" onclick="generateFacingCode()">Gerar Código</button>
+            <button class="cycle_information" onclick="generateFacingCode()">Gerar Código</button>
 
-            <div class="resultado" id="resultadoFaceamento"></div>
+            <div class="result" id="result_facing"></div>
 
         </div>
 

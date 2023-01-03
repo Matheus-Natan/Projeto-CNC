@@ -16,18 +16,18 @@ body{
     box-sizing: border-box;
 }
 
-.secao{
+.section{
     margin-bottom: 50px;
     position: relative;
     box-sizing: border-box;
 }
 
-.informacao_ciclo{
+.cycle_information{
     margin-bottom: 15px;
     height: 100%;
 }
 
-#desbaste{
+#thinning{
     border: 1px black solid;
     border-radius: 5px;
     padding: 10px;
@@ -35,7 +35,7 @@ body{
     box-sizing: border-box;
 }
 
-#faceamento{
+#facing{
     border: 1px black solid;
     border-radius: 5px;
     padding: 10px;
@@ -73,7 +73,7 @@ button:hover{
     width: 20px;
 }
 
-.resultado{
+.result{
     width: 100%;
     padding: 5px;
     border: 1px black solid;
@@ -85,10 +85,24 @@ button:hover{
     box-sizing: border-box;
 }
 
-#resultadoFaceamento{
+#result_facing{
     display: none;
 }
 
-#resultadoDesbaste{
+#roughing_result{
     display: none;
+}
+
+@media screen and (max-width: 500px) {
+
+    .container{
+        font-size: 120%;
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+    .container{
+        font-size: 90%;
+    }
 }
